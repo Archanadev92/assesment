@@ -20,7 +20,7 @@ const ApiDetails = () => {
 
   return (
     <div style={styles.container}>
-      <div style={{ width: "500px", margin: "0 auto" }}>
+      <div >
         <div style={styles.header}>
           <img
             src={apiDetails[providerName]?.info["x-logo"]["url"]}
@@ -32,16 +32,18 @@ const ApiDetails = () => {
           </div>
         </div>
         <div style={styles.section}>
+        <div style={styles.undersection}>
           <div style={styles.label}>Description</div>
           <div style={styles.text}>
             {apiDetails[providerName]?.externalDocs?.description}
           </div>
         </div>
-        <div style={styles.section}>
+        <div style={styles.undersection}>
           <div style={styles.label}>Swagger</div>
           <div style={styles.text}>{apiDetails[providerName]?.swaggerUrl}</div>
         </div>
-        <div style={styles.section}>
+        <div>
+        </div>
           <div style={styles.label}>Contact</div>
           <div style={styles.text}>
             Email: {apiDetails[providerName]?.info?.contact?.email}
@@ -53,7 +55,9 @@ const ApiDetails = () => {
             Url: {apiDetails[providerName]?.info?.contact.url}
           </div>
         </div>
+        <div style={styles.buttoncontainer}>
         <button style={styles.button}>Explore more APIs</button>
+        </div>
       </div>
     </div>
   );
@@ -71,28 +75,38 @@ const styles = {
   header: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
     marginBottom: "20px",
+   
+    
   },
   logo: {
-    height: "50px",
-    width: "50px",
+    height: "60px",
+    width: "60px",
     marginRight: "10px",
   },
   title: {
-    fontSize: "24px",
+    fontSize: "25px",
     fontWeight: "bold",
   },
   section: {
-    marginBottom: "15px",
+    marginTop:"30px",
+    marginBottom: "30px",
+    marginLeft: "250px",
+    
+  },
+  undersection:{
+    marginBottom:"50px"
+
   },
   label: {
-    fontSize: "14px",
+    fontSize: "20px",
     fontWeight: "bold",
-    marginBottom: "5px",
+    marginBottom: "10px",
   },
   text: {
     fontSize: "14px",
-    marginBottom: "5px",
+    marginBottom: "15px",
   },
   button: {
     backgroundColor: "#4eaef2", // Matches button color in screenshot
@@ -103,7 +117,13 @@ const styles = {
     cursor: "pointer",
     fontSize: "14px",
     fontWeight: "bold",
+    
+    
   },
+  buttoncontainer:{
+    marginLeft:"700px",
+    marginTop:"150px"
+  }
 };
 
 export default ApiDetails;
